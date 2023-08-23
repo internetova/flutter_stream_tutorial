@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stream/examples/01_counter_set_state.dart';
+import 'package:flutter_stream/examples/02_counter_stream_builder.dart';
+import 'package:flutter_stream/examples/03_counter_stream_builder_void.dart';
+import 'package:flutter_stream/examples/04_counter_two_stream_builder.dart';
+import 'package:flutter_stream/examples/05_counter_behavior_subject.dart';
+import 'package:flutter_stream/examples/06_button_behavior_subject.dart';
+import 'package:flutter_stream/examples/07_2_search.dart';
+import 'package:flutter_stream/examples/07_1_search.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,7 +15,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,55 +23,16 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const Example01(title: 'Demo Counter'),
+      // home: const Example02(title: 'Demo Counter Stream'),
+      // home: const Example03(title: 'Demo Counter StreamBuilder void'),
+      // home: const Example04(title: 'Demo Counter two StreamBuilder'),
+      // home: const Example05(title: 'Demo Counter BehaviorSubject'),
+      // home: const Example06(title: 'Demo Counter BehaviorSubject'),
+      // home: const SearchScreen(),
+      // home: const SearchScreen2(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
 
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
-}
